@@ -31,7 +31,12 @@ Then, you can import a component from any Markdown file by prepending the filena
 
 ```
 /* eslint-disable import/no-webpack-loader-syntax */
-import MyDocument from '!babel-loader!@lingdocs/mdx-loader!../pages/index.md'
+import * as myDoc from '!babel-loader!@lingdocs/mdx-loader!../pages/index.mdx'
+const Component = myDoc.default;
+const { frontMatter } = myDoc;
+const tableOfContens = myDoc.tableOfContents();
+
+// use as <Component />
 ```
 
 You can also import documents dynamically using the proposed `import()` syntax and [React.lazy()](https://reactjs.org/docs/code-splitting.html#reactlazy), without messing with linter config:
