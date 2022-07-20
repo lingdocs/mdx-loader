@@ -7,6 +7,7 @@ const mdxTableOfContents = require("mdx-table-of-contents");
 const mdxExportJSONByDefault = require("mdx-constant");
 const grayMatter = require("gray-matter");
 const typography = require("./typography");
+const autolink = require("./autolink");
 
 module.exports = async function(source) {
   let result
@@ -16,12 +17,13 @@ module.exports = async function(source) {
     {
       remarkPlugins: [
         slug,
-        [textr, { plugins: [typography] }]
+        autolink,
+        [textr, { plugins: [typography] }],
       ],
       compilers: [
         mdxTableOfContents,
         mdxExportJSONByDefault("frontMatter", data)
-      ]
+      ],
     },
     getOptions(this),
     {filepath: this.resourcePath}

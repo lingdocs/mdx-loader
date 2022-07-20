@@ -11,6 +11,8 @@ This is a fork of [mdx-loader](https://github.com/frontarm/mdx-util#readme) with
 * A table of contents object is exported on the `tableOfContents` object via [mdx-table-of-contents](./packages/mdx-table-of-contents).
 * Pretty typograhy via [remark-textr](https://github.com/remarkjs/remark-textr).
 
+**NOTE**: Right now there is a very beta `autolink` plugin. Unfortunately it only works with text after markdown headings. Any JSX included in markdown headings will be lost!
+
 ## Usage
 
 ```
